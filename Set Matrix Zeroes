@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+
+void setZeros(vector<vector<int>> &matrix)
+{
+	
+	int rows=matrix.size();
+	int cols=matrix[0].size();
+	int checkFirstRow=0;
+	int checkFirstCol=0;
+	for(int i=0;i<rows;i++){
+		if(matrix[i][0]==0){
+			checkFirstCol=1;
+			break;
+		}
+	}
+	for(int i=0;i<cols;i++){
+		if(matrix[0][i]==0){
+			checkFirstRow=1;
+			break;
+		}
+	}
+
+	for(int i=0;i<rows;i++){		
+		for(int j=0;j<cols;j++){
+			if(matrix[i][j]==0){
+				matrix[i][0]=0;
+				matrix[0][j]=0;
+			}
+			
+		}
+	}
+
+	for(int i=1;i<rows;i++){		
+		for(int j=1;j<cols;j++){
+			if(matrix[i][0]==0||matrix[0][j]==0){
+				matrix[i][j]=0;
+			}
+			
+		}
+	}
+
+	for(int i=0;i<rows;i++){
+
+		if(checkFirstCol){
+			matrix[i][0]=0;
+		}
+		
+	}
+	for(int i=0;i<cols;i++){
+
+		if(checkFirstRow){
+			matrix[0][i]=0;
+		}
+		
+	}
+
+	// Write your code here.
+}
